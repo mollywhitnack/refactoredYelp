@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search</title>
+</head>
+<body ng-app='myApp'>
+<div class = "container">
+  <h1>Search</h1>
+  
+
+  <table class = 'table' ng-hide = "businesses.length ===0">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Rating</th>
+        <th>Add to Favorites</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat = 'business in businesses track by $index'>
+      <td>
+          <img src="{{business.image_url}}">
+      </td>
+      <td > 
+        <a ui-sref = 'showBusiness({businessId: business.id})'>{{business.name}}</a>
+      </td>
+      <td >{{business.location.cross_streets}}<br>{{business.location.city}}</td>
+      <td ><img src="{{business.rating_img_url}}"></td>
+      <td>
+        <button class="btn btn-primary" ng-click = 'favorite($index)' ng-if= "!toggleFave[$index]">Favorite</button>
+        <button class="btn btn-danger" ng-click = 'unFavorite($index)' ng-if= "toggleFave[$index]" >UnFavorte</button>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+
+<form ng-submit = 'searchBusiness()'>
+  <div class="form-group">
+      <label >Search By Yelp Id <h5> ex: urban-curry-san-francisco</h5></label>
+      <input type="text" class="form-control" placeholder="Name" ng-model = 'newItem.searchParams'>
+  </div>
+    <div class = "text-center submitbt"><button type="submit" class="btn btn-primary">Search</button></div>
+</form>
+
+<form ng-submit = 'searchBusiness2()'>
+  <div class="form-group">
+      <label >Location</label>
+      <input type="text" class="form-control" placeholder="Location" ng-model = 'newItem.location'>
+  </div>
+  <div class="form-group">
+      <label >Term</label>
+      <input type="text" class="form-control" placeholder="Term" ng-model = 'newItem.term'>
+  </div>
+    <div class = "text-center submitbt"><button type="submit" class="btn btn-primary">Search</button></div>
+</form>
+
+<br>
+<hr>
+<!--<pre> {{businesses | json}}</pre>-->
+
+
+
+
+</div>
+</body>
+</html>
