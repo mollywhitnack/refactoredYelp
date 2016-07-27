@@ -7,15 +7,12 @@ const bcrypt = require('bcryptjs');
 var Yelp = require("yelp")
 //saved businesses once they are favorited
 
-
 const JWT_SECRET = process.env.JWT_SECRET;
-
 
 let businessSchema = new mongoose.Schema({
   yelpId: String, 
   favoredBy:[String]
 });
-
 
 businessSchema.statics.addFavorite = function(businessObj, user, cb){
     console.log('file1:', businessObj.id);

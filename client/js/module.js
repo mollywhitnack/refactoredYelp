@@ -59,7 +59,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('showBusiness', {
       url: '/business/:businessId', 
       templateUrl: 'html/showbusiness.html', 
-      controller: 'showbusinessCtrl'
+      controller: 'showbusinessCtrl',      
+      resolve: {
+        Profile: function(User) {
+          return User.profile();
+        }
+      }
       })
     
   $urlRouterProvider.otherwise('/');
