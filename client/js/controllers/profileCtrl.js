@@ -4,8 +4,6 @@ let app = angular.module('myApp');
 
 app.controller('profileCtrl', function($scope, Profile, ProfileByID, $state, User, $rootScope, WallPost) {
   
-  console.log('profileCtrl!');
-
   $rootScope.currentUser = Profile;
 
   $scope.user = ProfileByID || Profile;
@@ -14,9 +12,6 @@ app.controller('profileCtrl', function($scope, Profile, ProfileByID, $state, Use
     .then(res =>{
     $scope.userWallposts = res;
   })
-
-  console.log("user:", $scope.user );
-  console.log("curruser:", $rootScope.currentUser );
 
   $scope.showdisplayNameForm = () =>{
     console.log("show form");
@@ -88,12 +83,10 @@ app.controller('profileCtrl', function($scope, Profile, ProfileByID, $state, Use
       createdAt: "add moment"
     };
 
-    console.log("post obj:", postObj);
-
 
     WallPost.addWallPost(postObj)
       .then(wallpost =>{
-        console.log("wallpost:" , wallpost);
+        //console.log("wallpost:" , wallpost);
         User.addWallPostToUser(ProfileByID._id, wallpost._id);
       })
       .then($state.go($state.$current, null, { reload: true }))

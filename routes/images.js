@@ -21,9 +21,6 @@ let urlBase = 'https://s3.amazonaws.com';
 let bucketName = 'MollyWhitnackBucket';
 
 router.post('/', upload.single('photo'), (req, res)=>{
-  console.log("req.body", req.body);
-  console.log("req.file:", req.file);
-
     Image.upload(req.file, req.body, (err, url)=>{
         res.status(err ? 400 :200).send(err || url);
     })
@@ -53,39 +50,3 @@ module.exports = router;
 
 
 
-
-/*'use strict';
-
-const express = require('express');
-const Image = require('../models/image');
-let router = express.Router();
-
-// images.js
-// /api/images
-
-
-
-router.post('/', (req, res)=>{
-  Image.create(req.body, (err, image)=>{
-    res.status(err ? 400 : 200).send(err || image);
-  })
-})
-
-router.route('/:id')
- .get((req, res) =>{
-  Image.findById(req.params.id, (err, image) =>{
-     res.status(err ? 400 : 200).send(err || image);
-    });
-  })
-  .put((req, res) =>{
-  Image.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, image) =>{
-     res.status(err ? 400 : 200).send(err || image);
-    });
-  })
-  .delete((req, res) =>{
-  Image.findByIdAndRemove(req.params.id, err =>{
-     res.status(err ? 400 : 200).send(err);
-  });
-});
-
-module.exports = router;*/

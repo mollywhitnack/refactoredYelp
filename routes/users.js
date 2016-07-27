@@ -13,7 +13,6 @@ router.get('/', (req, res) =>{
 });
 
 router.get('/profile', User.authMiddleware(), (req, res) => {
-  console.log('req.user:', req.user);
   res.send(req.user);
 });
 
@@ -25,7 +24,6 @@ router.get('/profile/:id', User.authMiddleware(), (req, res) => {
 
 //to update profile
 router.put('/profile/:id', User.authMiddleware(), (req, res) =>{
-    //console.log('req.params.id:', req.params.id);
     User.findByIdAndUpdate(req.params.id, req.body, {new :true}, (err, savedProf)=>{
       res.status(err ? 400 :200).send(err || savedProf);
     })
@@ -33,31 +31,24 @@ router.put('/profile/:id', User.authMiddleware(), (req, res) =>{
 
 
 router.put('/profile/:id/add/:yelpId', User.authMiddleware(), (req, res) =>{
-    console.log('---------req.params.id:', req.params.id);
-    console.log('--------req.params.yelpid:', req.params.yelpId);
     User.findByIdAndUpdate(req.params.id, {$push: {'favorites': req.params.yelpId }}, {new :true}, (err, savedProf)=>{
       res.status(err ? 400 :200).send(err || savedProf);
     })
 });
 
 router.put('/profile/:id/remove/:yelpId', User.authMiddleware(), (req, res) =>{
-    console.log('---------req.params.id:', req.params.id);
-    console.log('--------req.params.yelpid:', req.params.yelpId);
     User.findByIdAndUpdate(req.params.id, {$pull: {'favorites': req.params.yelpId }}, {new :true}, (err, savedProf)=>{
       res.status(err ? 400 :200).send(err || savedProf);
     })
 });
 
 router.delete('/profile/:id', User.authMiddleware(), (req, res) =>{
-    console.log('req.params.id:', req.params.id);
     User.findByIdAndRemove(req.params.id, {new :true}, (err, removed)=>{
       res.status(err ? 400 :200).send(err || removed);
     })
 });
 
 router.put('/profile/:userId/addCrud/:postId', User.authMiddleware(), (req, res) =>{
-    console.log('req.params.userId:', req.params.userId);
-    console.log('req.params.postId:', req.params.postId  );
     User.addCrud(req.params.userId, req.params.postId, {new :true}, (err, savedProf)=>{
       res.status(err ? 400 :200).send(err || savedProf);
     })

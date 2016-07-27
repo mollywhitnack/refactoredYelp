@@ -5,13 +5,11 @@
   <title>Single View</title>
 </head>
 <body ng-app='myApp' ng-controller='showbusinessCtrl'>
-<h1>{{business.name}} <img src="{{business.rating_img_url}}"></h1>
-
+<h1>{{business.name}} <img src="{{business.rating_img_url}}">
 
 <button class="btn btn-primary" ng-click = 'favorite($index)' ng-if= "!singletoggleFave && showButton">Favorite</button>
 <button class="btn btn-danger" ng-click = 'unFavorite($index)' ng-if= "singletoggleFave && showButton" >UnFavorte</button>
-
-<br>
+</h1>
 
 <span class='inLB'><img src="{{business.image_url}}"></span>
 <span class='inLB address'>

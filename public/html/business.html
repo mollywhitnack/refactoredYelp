@@ -6,7 +6,7 @@
 </head>
 <body ng-app='myApp'>
 <div class = "container">
-  <h1>Search</h1>
+  <h1 class = "text-center">Search</h1>
   
 
   <table class = 'table' ng-hide = "businesses.length ===0">
@@ -37,13 +37,13 @@
     </tbody>
   </table>
 
-<form ng-submit = 'searchBusiness()'>
+<!--<form ng-submit = 'searchBusiness()'>
   <div class="form-group">
       <label >Search By Yelp Id <h5> ex: urban-curry-san-francisco</h5></label>
       <input type="text" class="form-control" placeholder="Name" ng-model = 'newItem.searchParams'>
   </div>
     <div class = "text-center submitbt"><button type="submit" class="btn btn-primary">Search</button></div>
-</form>
+</form>-->
 
 <form ng-submit = 'searchBusiness2()'>
   <div class="form-group">
@@ -57,8 +57,6 @@
     <div class = "text-center submitbt"><button type="submit" class="btn btn-primary">Search</button></div>
 </form>
 
-<br>
-<hr>
 <!--<pre> {{businesses | json}}</pre>-->
 
 

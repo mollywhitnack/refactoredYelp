@@ -3,7 +3,6 @@
 let app = angular.module('myApp');
 
 app.controller('mainCtrl', function($scope, $state, $auth, $rootScope) {
-  console.log('mainCtrl!');
 
   $rootScope.currentUser;
 
