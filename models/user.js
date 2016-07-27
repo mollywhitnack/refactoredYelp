@@ -61,9 +61,6 @@ userSchema.statics.update = function(userObj, cb){
 
 userSchema.statics.register = function(userObj, cb){
 
-  // Check that the email is not taken
-  // Create a new user document
-
   this.findOne({email: userObj.email}, (err, user) => {
     if(err || user) return cb(err || {error: 'user already exists with this email.'});
     

@@ -17,7 +17,8 @@ app.controller('registerCtrl', function($scope, $state, $auth) {
         $state.go('login');
       })
       .catch(err =>{
-        console.log("err:", err);
+        //console.log("err:", err);
+        swal({   title: "Error!",   text: "Invalid Email or Password",   type: "error",   confirmButtonText: "Ok" });
       })
     }
   };

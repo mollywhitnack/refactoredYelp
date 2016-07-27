@@ -21,6 +21,7 @@
     "angular-ui-router": "^0.3.1",
     "satellizer": "^0.14.1",
     "ng-file-upload": "^12.0.4",
-    "bootswatch-dist": "paper"
+    "bootswatch-dist": "paper",
+    "sweetalert": "^1.1.3"
   }
 }

@@ -14,7 +14,8 @@ app.controller('loginCtrl', function($scope, $state, $auth, $rootScope) {
         $state.go('profile');
       })
       .catch(err =>{
-        console.log("err:", err);
+        //console.log("err:", err);
+        swal({   title: "Error!",   text: "Invalid Email or Password",   type: "error",   confirmButtonText: "Ok" });
       })
     };
 });
