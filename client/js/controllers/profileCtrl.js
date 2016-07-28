@@ -2,7 +2,7 @@
 
 let app = angular.module('myApp');
 
-app.controller('profileCtrl', function($scope, Profile, ProfileByID, $state, User, $rootScope, WallPost) {
+app.controller('profileCtrl', function($scope, Profile, Business, ProfileByID, $state, User, $rootScope, WallPost) {
   
   $rootScope.currentUser = Profile;
 
@@ -12,6 +12,19 @@ app.controller('profileCtrl', function($scope, Profile, ProfileByID, $state, Use
     .then(res =>{
     $scope.userWallposts = res;
   })
+
+  $scope.displayFaves = [];
+
+  for(var i =0; i< Profile.favorites.length; i++){
+    Business.searchYelp(Profile.favorites[i])
+    .then(res =>{
+      console.log(res);
+      $scope.displayFaves.push(res);
+    })   
+    .catch(err =>{
+      console.log("err in businessCtrl: ", err);
+    })
+  } 
 
   $scope.showdisplayNameForm = () =>{
     console.log("show form");

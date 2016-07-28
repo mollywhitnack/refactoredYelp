@@ -22,8 +22,27 @@ ol {
   margin-top: -12px;
   margin-left: 10px; }
 
+.selectBusiness:hover {
+  text-decoration: none; }
+
+.favoriteBusinesses {
+  display: inline-block;
+  border: 1px solid black;
+  margin-left: 10px;
+  margin-right: 10px;
+  vertical-align: top;
+  padding: 10px;
+  border-radius: 4px 4px 4px 4px; }
+
+.favoriteBusinesses:hover {
+  background-color: #e6e6e6; }
+
 .profName {
   display: inline-block; }
+
+.navbar-brand > img {
+  display: block;
+  margin-top: -20px; }
 
 .pictureCont {
   display: inline-block; }

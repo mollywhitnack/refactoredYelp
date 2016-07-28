@@ -25,9 +25,22 @@
     <button class = "btn btn-danger" type = "cancel" ng-click = "cancelPhotoUrl()">Cancel</button>
   </form>
 <hr>
-<h4> {{user.displayName}}'s Favorite Places</h4>
-<div ng-repeat = 'name in user.favorites track by $index'>
-<li><a ui-sref = 'showBusiness({businessId: name})'>{{name}}</a></li>
+<h4 ng-if ="currentUser._id !== user._id" class = "text-center"> {{user.displayName}}'s Favorite Places</h4>
+<h4 ng-if ="currentUser._id === user._id" class = "text-center"> My Favorite Places</h4>
+
+<div class  ="text-center">
+  <span ng-repeat = 'business in displayFaves' class = 'favoriteBusinesses'> 
+    <a ui-sref = 'showBusiness({businessId: business.id})' class = "selectBusiness">
+      <div>{{business.name}} </div>
+      <img src="{{business.rating_img_url}}">
+      <div>{{business.location.display_address[0]}}</div>
+      <div>{{business.location.display_address[1]}}</div>
+      <div>{{business.location.display_address[2]}}</div>
+      <div>Phone: {{business.display_phone}}</div>
+    </a>
+  </span>
+</div>
+
 </div>
 
  <hr>
@@ -48,10 +61,6 @@
   </form>
 </div>
  
-
-
-
- <!--<pre>{{user | json}}</pre>-->
 
 </div>
 </body>
