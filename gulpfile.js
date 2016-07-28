@@ -22,6 +22,10 @@ let paths = {
     input: 'client/html/**/*.html',
     output: 'public/html'
   },
+  images:{
+    input: 'client/images/**/*.png',
+    output: 'public/images'
+  },
   js : {
     input: 'client/js/**/*.js',
     output: 'public/js'
@@ -49,7 +53,7 @@ gulp.task('lint', function(){
 gulp.task('default', ['build', 'watch', 'browser-sync']);
 
 //tell heroku to run build but not watch
-gulp.task('build', ['html', 'css', 'js', 'favicon']);
+gulp.task('build', ['html', 'images','css', 'js', 'favicon']);
 gulp.task('watch',['watch:html', 'watch:css', 'watch:js']);
 
 //for gulp to run 
@@ -91,6 +95,20 @@ gulp.task('clean:html', function(){
 
 gulp.task('watch:html', function(){
   gulp.watch(paths.html.input, ['html', 'bs-reload']);
+})
+
+///////////////////images /////////////////////////
+gulp.task('images', ['clean:images'], function(){
+  return gulp.src(paths.images.input)
+    .pipe(gulp.dest(paths.images.output))
+});
+
+gulp.task('clean:images', function(){
+  return del([paths.images.output]);
+});
+
+gulp.task('watch:images', function(){
+  gulp.watch(paths.images.input, ['images', 'bs-reload']);
 })
 
 /////////////////// JS /////////////////////////
