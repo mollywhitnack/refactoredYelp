@@ -16,6 +16,34 @@ ol {
   height: 150px;
   border: 1px solid #000; }
 
+.usersNames {
+  color: black;
+  margin-left: 10%; }
+
+.userDisplay:hover {
+  background-color: grey;
+  text-decoration: none; }
+
+.feedInfo {
+  color: black;
+  font-size: 120%;
+  right: 0; }
+
+.userDisplay {
+  width: 300px;
+  vertical-align: top; }
+
+.imgalighn {
+  margin-left: 10px; }
+
+.userDisplay {
+  display: inline-block;
+  border: 1px solid #000;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 4px 4px 4px 4px; }
+
 .pencilEdit {
   display: inline-block;
   background-color: none;
@@ -30,9 +58,16 @@ ol {
   border: 1px solid black;
   margin-left: 10px;
   margin-right: 10px;
+  margin-bottom: 10px;
   vertical-align: top;
   padding: 10px;
-  border-radius: 4px 4px 4px 4px; }
+  border-radius: 4px 4px 4px 4px;
+  width: 250px; }
+
+.postArea {
+  width: 65%;
+  margin: 0 auto;
+  margin-top: 5%; }
 
 .favoriteBusinesses:hover {
   background-color: #e6e6e6; }
@@ -46,10 +81,6 @@ ol {
 
 .pictureCont {
   display: inline-block; }
-
-.imgalighn {
-  float: right;
-  margin-top: -40px; }
 
 .right {
   text-align: right; }

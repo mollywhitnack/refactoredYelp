@@ -31,11 +31,12 @@
 <div class  ="text-center">
   <span ng-repeat = 'business in displayFaves' class = 'favoriteBusinesses'> 
     <a ui-sref = 'showBusiness({businessId: business.id})' class = "selectBusiness">
-      <div>{{business.name}} </div>
+      <h4>{{business.name}} </h4>
       <img src="{{business.rating_img_url}}">
       <div>{{business.location.display_address[0]}}</div>
       <div>{{business.location.display_address[1]}}</div>
       <div>{{business.location.display_address[2]}}</div>
+      <br>
       <div>Phone: {{business.display_phone}}</div>
     </a>
   </span>
@@ -43,14 +44,12 @@
 
 </div>
 
- <hr>
 
- <div class = "text-center">
+ <div class = "text-center postArea">
  <span ng-repeat = "post in userWallposts track by $index">
   <h4 >{{post.text}}</h4>
   <br>
   <h6> - {{post.fromName}}</h6>
-  <hr>
  </span>
 
 
