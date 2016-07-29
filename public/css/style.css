@@ -62,7 +62,8 @@ ol {
   vertical-align: top;
   padding: 10px;
   border-radius: 4px 4px 4px 4px;
-  width: 250px; }
+  width: 250px;
+  height: 220px; }
 
 .postArea {
   width: 65%;
