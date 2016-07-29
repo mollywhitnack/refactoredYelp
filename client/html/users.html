@@ -9,14 +9,13 @@
   <h1>Users</h1>
 <hr>
 
-  <span class = "userDisplay" ng-repeat = 'user in userFeed'>
-    <a ui-sref = 'profile({userId: user._id})' class = "">
+  <span class = "" ng-repeat = 'user in userFeed'>
+    <a ui-sref = 'profile({userId: user._id})' class = "userDisplay">
         <span class = "feedPic">
           <img class = "imgalighn inLB" ng-src="{{user.profileImage}}" style="height:80px">
         </span>
         <h4 class = "inLB usersNames">  {{user.displayName}}</h4>
     </a>
-
   </span>
 
 </div>
